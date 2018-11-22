@@ -1,0 +1,33 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Menus</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/apprestaurante.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+    </head>
+    <body>
+      <div class="page-header">
+          <a href="{% url 'ejercito_nuevo' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+          <p class="top-menu">Bienvenido <small></small></p>
+
+        <h1>
+          <img src="https://cdn.supercell.com/supercell.com/181107115415/supercell.com/files/clashroyale_logo.png" width="10%" height="10%"/>
+          <a href="/">Menus</a>
+        </h1>
+        <h2>Los mejores menus de la temporada!</h2>
+      </div>
+      <div class="content container">
+        <div class="row">
+          <div class="col-md-8">
+
+            {% block content %}
+            {% endblock %}
+          </div>
+        </div>
+      </div>
+    </body>
+    <footer id="sticky">Desarollado por Jerson Ochoa</footer>
+  </html>

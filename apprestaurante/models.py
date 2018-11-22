@@ -33,7 +33,14 @@ class Cliente(models.Model):
         return self.nombre
 
 class Menu(models.Model):
+    nombre = models.CharField(max_length=50)
     plato = models.ForeignKey(Plato, on_delete=models.CASCADE)
+
+    def add(self):
+        self.save()
+
+    def __str__(self):
+        return self.nombre
 
 class MenuInLine(admin.TabularInline):
     model = Menu
@@ -47,7 +54,7 @@ class Venta(models.Model):
 class VentaInLine(admin.TabularInline):
     model = Venta
     extra = 1
-    
+
 class PlatoAdmin(admin.ModelAdmin):
     inlines = (MenuInLine,)
 
@@ -55,4 +62,7 @@ class EmpleadoAdmin(admin.ModelAdmin):
     inlines = (VentaInLine,)
 
 class ClienteAdmin(admin.ModelAdmin):
+    inlines = (VentaInLine,)
+
+class MenuAdmin(admin.ModelAdmin):
     inlines = (VentaInLine,)
